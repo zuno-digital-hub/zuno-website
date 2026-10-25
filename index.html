@@ -1,1 +1,154 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover ZUNO Digital Hub, a growing digital brand exploring technology, creative projects and online solutions.">
+  <meta name="theme-color" content="#080d1c">
+  <title>ZUNO Digital Hub | Ideas Into Digital Experiences</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #080d1c;
+      color: #f4f7ff;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 20px 8%;
+      border-bottom: 1px solid #26304b;
+      background: #080d1c;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; }
+    .logo span { color: #65d6ff; }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav a { color: #d4dcef; font-size: .95rem; }
+    nav a:hover { color: #65d6ff; }
+    .hero {
+      min-height: 78vh; padding: 100px 8%;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      background: radial-gradient(ellipse at 80% 20%, #153e65 0, transparent 45%),
+                  linear-gradient(135deg, #080d1c, #111b35);
+    }
+    .tag {
+      color: #65d6ff; border: 1px solid #32658c;
+      border-radius: 30px; padding: 6px 15px;
+      font-size: .85rem; margin-bottom: 25px;
+    }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1.08; max-width: 850px; }
+    h1 span { color: #65d6ff; }
+    .hero p { max-width: 620px; margin: 25px 0 32px; color: #c2cde2; font-size: 1.1rem; }
+    .button {
+      display: inline-block; background: #65d6ff; color: #081221;
+      padding: 12px 23px; border-radius: 8px; font-weight: 700;
+      transition: transform .2s, background .2s;
+    }
+    .button:hover { transform: translateY(-3px); background: #a1e8ff; }
+    section { padding: 80px 8%; }
+    .section-label { color: #65d6ff; text-transform: uppercase; letter-spacing: 2px; font-size: .8rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 10px 0 18px; }
+    .intro { max-width: 720px; color: #c2cde2; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 35px; }
+    .card {
+      padding: 27px; border: 1px solid #293854; border-radius: 15px;
+      background: linear-gradient(145deg, #141f38, #0d1427);
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #65d6ff; }
+    .card .number { color: #65d6ff; font-size: 1.4rem; font-weight: 800; }
+    .card h3 { margin: 12px 0 8px; font-size: 1.25rem; }
+    .card p { color: #c2cde2; }
+    #about { background: #10182b; }
+    #contact { text-align: center; background: #0c1426; }
+    #contact .intro { margin: auto; }
+    footer { text-align: center; padding: 25px; color: #aab8d0; border-top: 1px solid #293854; font-size: .9rem; }
+    @media (max-width: 600px) {
+      header { padding: 16px 5%; flex-direction: column; gap: 12px; }
+      nav { justify-content: center; gap: 15px; }
+      .hero { padding: 80px 6%; min-height: 70vh; }
+      section { padding: 60px 6%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#home">ZUNO<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="tag">WELCOME TO ZUNO DIGITAL HUB</div>
+      <h1>Ideas into<br><span>digital experiences.</span></h1>
+      <p>
+        A growing digital brand focused on creative ideas, technology
+        and useful online experiences. Discover what we are building.
+      </p>
+      <a class="button" href="#services">Explore Our Focus &rarr;</a>
+    </section>
+
+    <section id="about">
+      <div class="section-label">Who We Are</div>
+      <h2>Welcome to ZUNO.</h2>
+      <p class="intro">
+        ZUNO Digital Hub is an independent digital brand with a vision
+        to explore new ideas, create useful digital experiences and
+        grow through creativity, learning and technology.
+      </p>
+    </section>
+
+    <section id="services">
+      <div class="section-label">What We Explore</div>
+      <h2>Our Digital Focus</h2>
+      <p class="intro">
+        We are developing our projects and capabilities. These are
+        the areas we aim to explore and build over time.
+      </p>
+      <div class="cards">
+        <article class="card">
+          <div class="number">01</div>
+          <h3>Digital Projects</h3>
+          <p>Creative web projects designed to share ideas and information online.</p>
+        </article>
+        <article class="card">
+          <div class="number">02</div>
+          <h3>Technology</h3>
+          <p>Exploring digital tools, modern web technologies and practical solutions.</p>
+        </article>
+        <article class="card">
+          <div class="number">03</div>
+          <h3>Creative Ideas</h3>
+          <p>Developing fresh concepts into clear, useful digital experiences.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's build something useful.</h2>
+      <p class="intro">
+        ZUNO Digital Hub is growing. Contact information and further
+        project updates will be added here when available.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> ZUNO Digital Hub. All rights reserved.
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
