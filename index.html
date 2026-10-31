@@ -2,153 +2,732 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover ZUNO Digital Hub, a growing digital brand exploring technology, creative projects and online solutions.">
-  <meta name="theme-color" content="#080d1c">
-  <title>ZUNO Digital Hub | Ideas Into Digital Experiences</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #080d1c;
-      color: #f4f7ff;
-      line-height: 1.7;
-    }
-    a { color: inherit; text-decoration: none; }
-    header {
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 20px 8%;
-      border-bottom: 1px solid #26304b;
-      background: #080d1c;
-      position: sticky; top: 0; z-index: 10;
-    }
-    .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 2px; }
-    .logo span { color: #65d6ff; }
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
-    nav a { color: #d4dcef; font-size: .95rem; }
-    nav a:hover { color: #65d6ff; }
-    .hero {
-      min-height: 78vh; padding: 100px 8%;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: flex-start;
-      background: radial-gradient(ellipse at 80% 20%, #153e65 0, transparent 45%),
-                  linear-gradient(135deg, #080d1c, #111b35);
-    }
-    .tag {
-      color: #65d6ff; border: 1px solid #32658c;
-      border-radius: 30px; padding: 6px 15px;
-      font-size: .85rem; margin-bottom: 25px;
-    }
-    h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1.08; max-width: 850px; }
-    h1 span { color: #65d6ff; }
-    .hero p { max-width: 620px; margin: 25px 0 32px; color: #c2cde2; font-size: 1.1rem; }
-    .button {
-      display: inline-block; background: #65d6ff; color: #081221;
-      padding: 12px 23px; border-radius: 8px; font-weight: 700;
-      transition: transform .2s, background .2s;
-    }
-    .button:hover { transform: translateY(-3px); background: #a1e8ff; }
-    section { padding: 80px 8%; }
-    .section-label { color: #65d6ff; text-transform: uppercase; letter-spacing: 2px; font-size: .8rem; }
-    h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 10px 0 18px; }
-    .intro { max-width: 720px; color: #c2cde2; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 35px; }
-    .card {
-      padding: 27px; border: 1px solid #293854; border-radius: 15px;
-      background: linear-gradient(145deg, #141f38, #0d1427);
-      transition: transform .2s, border-color .2s;
-    }
-    .card:hover { transform: translateY(-5px); border-color: #65d6ff; }
-    .card .number { color: #65d6ff; font-size: 1.4rem; font-weight: 800; }
-    .card h3 { margin: 12px 0 8px; font-size: 1.25rem; }
-    .card p { color: #c2cde2; }
-    #about { background: #10182b; }
-    #contact { text-align: center; background: #0c1426; }
-    #contact .intro { margin: auto; }
-    footer { text-align: center; padding: 25px; color: #aab8d0; border-top: 1px solid #293854; font-size: .9rem; }
-    @media (max-width: 600px) {
-      header { padding: 16px 5%; flex-direction: column; gap: 12px; }
-      nav { justify-content: center; gap: 15px; }
-      .hero { padding: 80px 6%; min-height: 70vh; }
-      section { padding: 60px 6%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore ZUNO Digital Hub, a multi-vendor marketplace for products, digital downloads and services.">
+<meta name="theme-color" content="#080d1c">
+<title>ZUNO Digital Hub | Multi-Vendor Marketplace</title>
+
+<style>
+:root {
+  --bg:#080d1c;
+  --panel:#111b31;
+  --panel2:#162440;
+  --cyan:#65d6ff;
+  --cyan2:#a1e8ff;
+  --text:#f4f7ff;
+  --muted:#bdc9df;
+  --border:#293854;
+  --green:#66e3a4;
+  --danger:#ff8080;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,sans-serif;background:var(--bg);
+  color:var(--text);line-height:1.65
+}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:20px;padding:17px 7%;background:#080d1cf2;
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;backdrop-filter:blur(15px)
+}
+.logo{font-size:1.55rem;font-weight:900;letter-spacing:2px}
+.logo span{color:var(--cyan)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{font-size:.9rem;color:#d4dcef}
+nav a:hover{color:var(--cyan)}
+.header-actions{display:flex;gap:9px;align-items:center}
+.small-btn,.button{
+  border:0;border-radius:8px;padding:10px 15px;
+  background:var(--cyan);color:#081221;font-weight:800;
+  transition:.2s
+}
+.small-btn:hover,.button:hover{background:var(--cyan2);transform:translateY(-2px)}
+.outline{
+  background:transparent;color:var(--cyan);
+  border:1px solid var(--cyan)
+}
+.hero{
+  min-height:65vh;padding:95px 8%;
+  display:flex;flex-direction:column;justify-content:center;
+  align-items:flex-start;
+  background:radial-gradient(ellipse at 80% 20%,#153e65 0,transparent 45%),
+  linear-gradient(135deg,#080d1c,#111b35)
+}
+.tag{
+  color:var(--cyan);border:1px solid #32658c;
+  border-radius:30px;padding:6px 15px;font-size:.82rem;
+  margin-bottom:23px
+}
+h1{font-size:clamp(2.7rem,7vw,5.2rem);line-height:1.1}
+h1 span{color:var(--cyan)}
+.hero p{max-width:650px;margin:23px 0 28px;color:var(--muted);font-size:1.08rem}
+section{padding:70px 7%}
+.section-label{
+  color:var(--cyan);text-transform:uppercase;
+  letter-spacing:2px;font-size:.8rem
+}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);margin:8px 0 14px}
+.intro{max-width:760px;color:var(--muted)}
+#about{background:#10182b}
+#marketplace{background:#0b1325}
+.toolbar{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:12px;margin:28px 0
+}
+.field{
+  width:100%;padding:12px 14px;background:#0a1224;
+  color:white;border:1px solid var(--border);border-radius:8px;
+  outline:none
+}
+.field:focus{border-color:var(--cyan)}
+.cards{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:19px;margin-top:25px
+}
+.card{
+  background:linear-gradient(145deg,#141f38,#0d1427);
+  border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;transition:.25s
+}
+.card:hover{transform:translateY(-5px);border-color:var(--cyan)}
+.product-art{
+  min-height:145px;display:grid;place-items:center;
+  font-size:3.5rem;
+  background:radial-gradient(circle at center,#23476a,#101b32)
+}
+.product-info{padding:17px}
+.product-info h3{font-size:1.12rem;margin:5px 0}
+.muted{color:var(--muted);font-size:.9rem}
+.price{font-size:1.25rem;font-weight:900;color:var(--cyan);margin:9px 0}
+.pill{
+  display:inline-block;padding:3px 9px;border-radius:20px;
+  background:#193451;color:var(--cyan);font-size:.72rem
+}
+.product-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.product-actions button{
+  flex:1;min-width:65px;padding:8px 7px;
+  border-radius:7px;border:1px solid var(--border);
+  color:var(--text);background:#17243d;font-size:.78rem
+}
+.product-actions button:hover{border-color:var(--cyan);color:var(--cyan)}
+.product-actions .add{background:var(--cyan);color:#081221;border:0;font-weight:bold}
+.panel{
+  padding:24px;background:linear-gradient(145deg,#141f38,#0d1427);
+  border:1px solid var(--border);border-radius:14px;margin-top:25px
+}
+.panel h3{margin-bottom:10px}
+.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-grid .full{grid-column:1/-1}
+label{display:block;color:var(--muted);font-size:.86rem;margin-bottom:5px}
+.form-field{margin-bottom:12px}
+.form-field input,.form-field select,.form-field textarea{
+  width:100%;padding:11px;background:#0a1224;
+  border:1px solid var(--border);border-radius:8px;color:white
+}
+.form-field textarea{min-height:90px;resize:vertical}
+.status{color:var(--green);margin-top:10px;font-size:.9rem}
+.result{margin-top:15px;color:var(--muted);white-space:pre-line}
+.stat-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;margin-top:20px
+}
+.stat{
+  background:#0c172c;border:1px solid var(--border);
+  border-radius:10px;padding:17px
+}
+.stat strong{display:block;color:var(--cyan);font-size:1.7rem}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.list-item{
+  padding:12px 0;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;gap:12px;align-items:center
+}
+footer{
+  text-align:center;padding:27px;color:#aab8d0;
+  border-top:1px solid var(--border)
+}
+.modal{
+  display:none;position:fixed;inset:0;z-index:300;
+  background:#000b;align-items:center;justify-content:center;padding:18px
+}
+.modal.open{display:flex}
+.modal-box{
+  background:#111d34;border:1px solid var(--cyan);
+  border-radius:15px;padding:25px;width:min(520px,100%);
+  max-height:85vh;overflow:auto
+}
+.modal-close{float:right;background:none;border:0;color:white;font-size:1.5rem}
+.empty{padding:25px;text-align:center;color:var(--muted)}
+.notice{
+  padding:12px;border:1px solid #32658c;border-radius:9px;
+  color:var(--muted);margin-top:15px;font-size:.87rem
+}
+.hidden{display:none!important}
+#toast{
+  position:fixed;bottom:20px;right:20px;z-index:500;
+  background:var(--cyan);color:#071321;padding:12px 18px;
+  border-radius:8px;font-weight:bold;display:none
+}
+@media(max-width:850px){
+  header{flex-wrap:wrap}
+  nav{order:3;width:100%;justify-content:center}
+  .toolbar{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  header{padding:14px 5%}
+  nav{gap:12px}
+  nav a{font-size:.82rem}
+  .header-actions{width:100%;justify-content:center}
+  .hero{padding:75px 6%;min-height:65vh}
+  section{padding:55px 6%}
+  .toolbar,.grid-two,.form-grid{grid-template-columns:1fr}
+  .form-grid .full{grid-column:auto}
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <a class="logo" href="#home">ZUNO<span>.</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="tag">WELCOME TO ZUNO DIGITAL HUB</div>
-      <h1>Ideas into<br><span>digital experiences.</span></h1>
-      <p>
-        A growing digital brand focused on creative ideas, technology
-        and useful online experiences. Discover what we are building.
-      </p>
-      <a class="button" href="#services">Explore Our Focus &rarr;</a>
-    </section>
+<header>
+  <a class="logo" href="#home">ZUNO<span>.</span></a>
 
-    <section id="about">
-      <div class="section-label">Who We Are</div>
-      <h2>Welcome to ZUNO.</h2>
-      <p class="intro">
-        ZUNO Digital Hub is an independent digital brand with a vision
-        to explore new ideas, create useful digital experiences and
-        grow through creativity, learning and technology.
-      </p>
-    </section>
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#marketplace">Marketplace</a>
+    <a href="#seller">Become a Seller</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <section id="services">
-      <div class="section-label">What We Explore</div>
-      <h2>Our Digital Focus</h2>
-      <p class="intro">
-        We are developing our projects and capabilities. These are
-        the areas we aim to explore and build over time.
-      </p>
-      <div class="cards">
-        <article class="card">
-          <div class="number">01</div>
-          <h3>Digital Projects</h3>
-          <p>Creative web projects designed to share ideas and information online.</p>
-        </article>
-        <article class="card">
-          <div class="number">02</div>
-          <h3>Technology</h3>
-          <p>Exploring digital tools, modern web technologies and practical solutions.</p>
-        </article>
-        <article class="card">
-          <div class="number">03</div>
-          <h3>Creative Ideas</h3>
-          <p>Developing fresh concepts into clear, useful digital experiences.</p>
-        </article>
+  <div class="header-actions">
+    <button class="small-btn outline" onclick="showCart()">Cart (<span id="cartCount">0</span>)</button>
+    <button class="small-btn outline" onclick="showWishlist()">Wishlist (<span id="wishCount">0</span>)</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="tag">WELCOME TO ZUNO DIGITAL HUB</div>
+  <h1>Discover more.<br><span>Shop smarter.</span></h1>
+  <p>
+    Explore products, digital downloads and useful services
+    from a growing marketplace designed to connect customers
+    and independent sellers.
+  </p>
+  <a class="button" href="#marketplace">Explore Marketplace →</a>
+</section>
+
+<section id="about">
+  <div class="section-label">Who We Are</div>
+  <h2>One hub. Many possibilities.</h2>
+  <p class="intro">
+    ZUNO Digital Hub is developing an all-in-one marketplace
+    where customers can explore products, digital resources and
+    services from multiple independent sellers.
+  </p>
+  <div class="cards">
+    <article class="card"><div class="product-info">
+      <div class="number">01</div><h3>Multiple Sellers</h3>
+      <p class="muted">A marketplace concept connecting different sellers with customers.</p>
+    </div></article>
+    <article class="card"><div class="product-info">
+      <div class="number">02</div><h3>Digital Products</h3>
+      <p class="muted">Discover downloadable resources and digital offerings.</p>
+    </div></article>
+    <article class="card"><div class="product-info">
+      <div class="number">03</div><h3>Services</h3>
+      <p class="muted">Explore service listings and connect with providers.</p>
+    </div></article>
+  </div>
+</section>
+
+<section id="marketplace">
+  <div class="section-label">Explore and discover</div>
+  <h2>Marketplace</h2>
+  <p class="intro">Search, filter, compare and explore the sample listings.</p>
+
+  <div class="toolbar">
+    <input class="field" id="searchInput" placeholder="Search products..." oninput="renderProducts()">
+
+    <select class="field" id="categoryFilter" onchange="renderProducts()">
+      <option value="all">All categories</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Fashion">Fashion</option>
+      <option value="Digital">Digital products</option>
+      <option value="Services">Services</option>
+      <option value="Home">Home</option>
+    </select>
+
+    <select class="field" id="typeFilter" onchange="renderProducts()">
+      <option value="all">All types</option>
+      <option value="Physical">Physical</option>
+      <option value="Digital">Digital</option>
+      <option value="Service">Service</option>
+    </select>
+
+    <select class="field" id="sortFilter" onchange="renderProducts()">
+      <option value="default">Sort: Recommended</option>
+      <option value="low">Price: Low to high</option>
+      <option value="high">Price: High to low</option>
+      <option value="name">Name: A to Z</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <p class="muted" id="productCount">Sample listings</p>
+    <button class="small-btn outline" onclick="clearFilters()">Clear filters</button>
+  </div>
+
+  <div class="cards" id="productGrid"></div>
+
+  <div class="panel">
+    <div class="row">
+      <div>
+        <h3>Product comparison</h3>
+        <p class="muted">Choose up to three sample listings to compare.</p>
       </div>
-    </section>
+      <button class="small-btn outline" onclick="clearCompare()">Clear comparison</button>
+    </div>
+    <div id="compareArea" class="result">No products selected.</div>
+  </div>
+</section>
 
-    <section id="contact">
-      <div class="section-label">Get In Touch</div>
-      <h2>Let's build something useful.</h2>
-      <p class="intro">
-        ZUNO Digital Hub is growing. Contact information and further
-        project updates will be added here when available.
-      </p>
-    </section>
-  </main>
+<section id="seller">
+  <div class="section-label">Grow with ZUNO</div>
+  <h2>Become a Seller</h2>
+  <p class="intro">
+    Interested in listing products, digital downloads or services?
+    Submit this demonstration application.
+  </p>
 
-  <footer>
-    &copy; <span id="year"></span> ZUNO Digital Hub. All rights reserved.
-  </footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <div class="grid-two">
+    <div class="panel">
+      <h3>Seller registration demo</h3>
+      <form id="sellerForm">
+        <div class="form-field">
+          <label for="sellerName">Seller / business name</label>
+          <input id="sellerName" required maxlength="80">
+        </div>
+        <div class="form-field">
+          <label for="sellerEmail">Contact email</label>
+          <input id="sellerEmail" type="email" required>
+        </div>
+        <div class="form-field">
+          <label for="sellerType">Seller category</label>
+          <select id="sellerType">
+            <option>Physical products</option>
+            <option>Digital products</option>
+            <option>Services</option>
+            <option>Multiple categories</option>
+          </select>
+        </div>
+        <button class="button" type="submit">Submit demo application</button>
+        <p class="status" id="sellerMessage"></p>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h3>Seller product submission demo</h3>
+      <form id="productForm">
+        <div class="form-field">
+          <label for="newProduct">Product / service name</label>
+          <input id="newProduct" required maxlength="80">
+        </div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="newPrice">Price (₹)</label>
+            <input id="newPrice" type="number" min="1" max="1000000" required>
+          </div>
+          <div class="form-field">
+            <label for="newCategory">Category</label>
+            <select id="newCategory">
+              <option>Electronics</option><option>Fashion</option>
+              <option>Digital</option><option>Services</option><option>Home</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="newType">Listing type</label>
+            <select id="newType">
+              <option>Physical</option><option>Digital</option><option>Service</option>
+            </select>
+          </div>
+        </div>
+        <button class="button" type="submit">Add sample listing</button>
+        <p class="status" id="productMessage"></p>
+      </form>
+      <div class="notice">New listings are stored only in this browser demonstration. They are not published to a shared seller marketplace.</div>
+    </div>
+  </div>
+</section>
+
+<section id="dashboard">
+  <div class="section-label">Marketplace overview</div>
+  <h2>Dashboard Preview</h2>
+  <p class="intro">A sample view of marketplace activity. These figures are demonstration data, not real business analytics.</p>
+
+  <div class="stat-grid">
+    <div class="stat"><span class="muted">Sample listings</span><strong id="statProducts">0</strong></div>
+    <div class="stat"><span class="muted">Cart items</span><strong id="statCart">0</strong></div>
+    <div class="stat"><span class="muted">Wishlist items</span><strong id="statWish">0</strong></div>
+    <div class="stat"><span class="muted">Compared items</span><strong id="statCompare">0</strong></div>
+  </div>
+
+  <div class="panel">
+    <h3>Marketplace tools</h3>
+    <div class="cards">
+      <article class="card"><div class="product-info"><h3>Inventory preview</h3><p class="muted">Sample listings and their availability.</p></div></article>
+      <article class="card"><div class="product-info"><h3>Order management</h3><p class="muted">Order workflow placeholder for future backend integration.</p></div></article>
+      <article class="card"><div class="product-info"><h3>Seller commissions</h3><p class="muted">Commission calculation can be configured on a secure backend.</p></div></article>
+      <article class="card"><div class="product-info"><h3>Analytics</h3><p class="muted">Future sales, traffic and conversion reports.</p></div></article>
+      <article class="card"><div class="product-info"><h3>Verification</h3><p class="muted">Seller identity verification requires a secure review process.</p></div></article>
+      <article class="card"><div class="product-info"><h3>Order tracking</h3><p class="muted">Shipment updates can be connected to delivery services.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <h2>Let's build something useful.</h2>
+  <p class="intro">ZUNO Digital Hub is growing. Contact channels and marketplace support will be added as they become available.</p>
+</section>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> ZUNO Digital Hub. All rights reserved.
+  <p class="muted">A growing digital marketplace.</p>
+</footer>
+
+<!-- Quick view modal -->
+<div class="modal" id="quickModal" onclick="outsideClose(event,'quickModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('quickModal')">×</button>
+    <div id="quickContent"></div>
+  </div>
+</div>
+
+<!-- Cart modal -->
+<div class="modal" id="cartModal" onclick="outsideClose(event,'cartModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('cartModal')">×</button>
+    <h2>Your Cart</h2>
+    <div id="cartContent"></div>
+    <div class="notice">Demo only: checkout and payments are not connected.</div>
+    <button class="button" onclick="demoCheckout()">Continue to demo checkout</button>
+  </div>
+</div>
+
+<!-- Wishlist modal -->
+<div class="modal" id="wishModal" onclick="outsideClose(event,'wishModal')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('wishModal')">×</button>
+    <h2>Your Wishlist</h2>
+    <div id="wishContent"></div>
+  </div>
+</div>
+
+<!-- Coupon modal -->
+<div class="modal" id="couponModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('couponModal')">×</button>
+    <h2>Demo Coupon</h2>
+    <p class="muted">Try the sample coupon code <strong>ZUNO10</strong> for a simulated 10% discount calculation.</p>
+    <input class="field" id="couponInput" placeholder="Enter coupon code">
+    <button class="button" style="margin-top:12px" onclick="applyCoupon()">Apply coupon</button>
+    <p id="couponMessage" class="status"></p>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const starterProducts = [
+ {id:1,name:"Smart Wireless Headphones",category:"Electronics",type:"Physical",price:1499,emoji:"🎧",seller:"ZUNO Demo Store",rating:4.5,description:"A sample electronics listing for the marketplace."},
+ {id:2,name:"Modern Backpack",category:"Fashion",type:"Physical",price:899,emoji:"🎒",seller:"Urban Demo Seller",rating:4.2,description:"A sample everyday backpack listing."},
+ {id:3,name:"Digital Study Planner",category:"Digital",type:"Digital",price:199,emoji:"📘",seller:"Creative Downloads",rating:4.8,description:"A sample downloadable planner. No real download is provided."},
+ {id:4,name:"Website Design Service",category:"Services",type:"Service",price:2999,emoji:"💻",seller:"Digital Studio",rating:4.7,description:"A sample service listing for website design."},
+ {id:5,name:"Desk Lamp",category:"Home",type:"Physical",price:599,emoji:"💡",seller:"Home Demo Store",rating:4.1,description:"A sample home and workspace product."},
+ {id:6,name:"Social Media Template Pack",category:"Digital",type:"Digital",price:299,emoji:"🎨",seller:"Creative Downloads",rating:4.6,description:"A sample digital template listing."},
+ {id:7,name:"Logo Design Service",category:"Services",type:"Service",price:999,emoji:"✨",seller:"Design Lab",rating:4.9,description:"A sample logo design service."},
+ {id:8,name:"Bluetooth Speaker",category:"Electronics",type:"Physical",price:1299,emoji:"🔊",seller:"ZUNO Demo Store",rating:4.3,description:"A sample portable speaker listing."}
+];
+
+let products = [...starterProducts];
+let cart = JSON.parse(localStorage.getItem("zunoCart") || "[]");
+let wishlist = JSON.parse(localStorage.getItem("zunoWishlist") || "[]");
+let comparison = [];
+let discount = 0;
+
+function saveData(){
+  localStorage.setItem("zunoCart",JSON.stringify(cart));
+  localStorage.setItem("zunoWishlist",JSON.stringify(wishlist));
+  updateCounts();
+}
+
+function money(value){
+  return "₹" + Number(value).toLocaleString("en-IN");
+}
+
+function notify(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.style.display="block";
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>toast.style.display="none",2300);
+}
+
+function renderProducts(){
+  const search=document.getElementById("searchInput").value.toLowerCase();
+  const category=document.getElementById("categoryFilter").value;
+  const type=document.getElementById("typeFilter").value;
+  const sort=document.getElementById("sortFilter").value;
+
+  let filtered=products.filter(p=>
+    p.name.toLowerCase().includes(search) &&
+    (category==="all" || p.category===category) &&
+    (type==="all" || p.type===type)
+  );
+
+  if(sort==="low") filtered.sort((a,b)=>a.price-b.price);
+  if(sort==="high") filtered.sort((a,b)=>b.price-a.price);
+  if(sort==="name") filtered.sort((a,b)=>a.name.localeCompare(b.name));
+
+  document.getElementById("productCount").textContent=filtered.length+" sample listing(s)";
+
+  const grid=document.getElementById("productGrid");
+  if(!filtered.length){
+    grid.innerHTML='<div class="empty">No matching listings found.</div>';
+    updateCounts();
+    return;
+  }
+
+  grid.innerHTML=filtered.map(p=>`
+    <article class="card">
+      <div class="product-art">${p.emoji}</div>
+      <div class="product-info">
+        <span class="pill">${p.type} · ${p.category}</span>
+        <h3>${escapeHTML(p.name)}</h3>
+        <p class="muted">Seller: ${escapeHTML(p.seller)}</p>
+        <p class="muted">★ ${p.rating.toFixed(1)} · Demo rating</p>
+        <div class="price">${money(p.price)}</div>
+        <div class="product-actions">
+          <button class="add" onclick="addToCart(${p.id})">Add to cart</button>
+          <button onclick="toggleWish(${p.id})">♡ Wishlist</button>
+          <button onclick="quickView(${p.id})">Quick view</button>
+          <button onclick="compareProduct(${p.id})">Compare</button>
+          <button onclick="showReviews(${p.id})">Reviews</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+  updateCounts();
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+
+function clearFilters(){
+  document.getElementById("searchInput").value="";
+  document.getElementById("categoryFilter").value="all";
+  document.getElementById("typeFilter").value="all";
+  document.getElementById("sortFilter").value="default";
+  renderProducts();
+}
+
+function addToCart(id){
+  const item=cart.find(x=>x.id===id);
+  if(item)item.quantity++;
+  else cart.push({id,quantity:1});
+  saveData();notify("Added to cart");
+}
+
+function toggleWish(id){
+  if(wishlist.includes(id))wishlist=wishlist.filter(x=>x!==id);
+  else wishlist.push(id);
+  saveData();notify("Wishlist updated");
+}
+
+function compareProduct(id){
+  if(comparison.includes(id)){
+    comparison=comparison.filter(x=>x!==id);
+  }else{
+    if(comparison.length>=3){notify("Compare up to three listings");return;}
+    comparison.push(id);
+  }
+  renderComparison();updateCounts();
+}
+
+function renderComparison(){
+  const chosen=comparison.map(id=>products.find(p=>p.id===id)).filter(Boolean);
+  const area=document.getElementById("compareArea");
+  if(!chosen.length){area.textContent="No products selected.";return;}
+  area.innerHTML=chosen.map(p=>
+    `<div class="list-item"><span>${escapeHTML(p.name)} · ${p.type}</span><strong>${money(p.price)}</strong></div>`
+  ).join("");
+}
+
+function clearCompare(){
+  comparison=[];renderComparison();updateCounts();
+}
+
+function quickView(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById("quickContent").innerHTML=`
+    <div class="product-art">${p.emoji}</div>
+    <span class="pill">${p.type} · ${p.category}</span>
+    <h2>${escapeHTML(p.name)}</h2>
+    <p class="muted">${escapeHTML(p.description)}</p>
+    <p class="muted">Seller: ${escapeHTML(p.seller)}</p>
+    <div class="price">${money(p.price)}</div>
+    <button class="button" onclick="addToCart(${p.id});closeModal('quickModal')">Add to cart</button>
+  `;
+  openModal("quickModal");
+}
+
+function showReviews(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  document.getElementById("quickContent").innerHTML=`
+    <h2>Customer reviews</h2>
+    <h3>${escapeHTML(p.name)}</h3>
+    <p class="price">★ ${p.rating.toFixed(1)} / 5</p>
+    <p class="muted">This is a sample rating for demonstration. Verified customer reviews will require real customer accounts and order records.</p>
+  `;
+  openModal("quickModal");
+}
+
+function showCart(){
+  const content=document.getElementById("cartContent");
+  if(!cart.length){
+    content.innerHTML='<p class="empty">Your cart is empty.</p>';
+  }else{
+    content.innerHTML=cart.map(item=>{
+      const p=products.find(x=>x.id===item.id);
+      if(!p)return "";
+      return `<div class="list-item">
+        <span>${escapeHTML(p.name)}<br><small>${money(p.price)} × ${item.quantity}</small></span>
+        <span>
+          <button class="small-btn" onclick="changeQuantity(${p.id},-1)">−</button>
+          <button class="small-btn" onclick="changeQuantity(${p.id},1)">+</button>
+          <button class="small-btn outline" onclick="removeCart(${p.id})">×</button>
+        </span>
+      </div>`;
+    }).join("");
+  }
+  const subtotal=cart.reduce((sum,item)=>{
+    const p=products.find(x=>x.id===item.id);
+    return sum+(p?p.price*item.quantity:0);
+  },0);
+  const total=subtotal*(1-discount);
+  content.innerHTML+=`<div class="panel">
+    <p>Subtotal: <strong>${money(subtotal)}</strong></p>
+    <p>Demo discount: <strong>${discount*100}%</strong></p>
+    <h3>Total: ${money(total)}</h3>
+    <button class="small-btn outline" onclick="openModal('couponModal')">Apply coupon</button>
+  </div>`;
+  openModal("cartModal");
+}
+
+function changeQuantity(id,amount){
+  const item=cart.find(x=>x.id===id);
+  if(!item)return;
+  item.quantity+=amount;
+  if(item.quantity<=0)cart=cart.filter(x=>x.id!==id);
+  saveData();showCart();
+}
+
+function removeCart(id){
+  cart=cart.filter(x=>x.id!==id);
+  saveData();showCart();
+}
+
+function showWishlist(){
+  const items=wishlist.map(id=>products.find(p=>p.id===id)).filter(Boolean);
+  document.getElementById("wishContent").innerHTML=items.length?
+    items.map(p=>`<div class="list-item">
+      <span>${escapeHTML(p.name)} · ${money(p.price)}</span>
+      <button class="small-btn" onclick="addToCart(${p.id})">Add</button>
+    </div>`).join(""):'<p class="empty">Your wishlist is empty.</p>';
+  openModal("wishModal");
+}
+
+function applyCoupon(){
+  const code=document.getElementById("couponInput").value.trim().toUpperCase();
+  const message=document.getElementById("couponMessage");
+  if(code==="ZUNO10"){
+    discount=0.10;
+    message.textContent="Demo coupon applied: 10% discount.";
+  }else{
+    discount=0;
+    message.textContent="Invalid demo coupon code.";
+  }
+}
+
+function demoCheckout(){
+  notify("Demo only — no payment has been made.");
+}
+
+function openModal(id){document.getElementById(id).classList.add("open")}
+function closeModal(id){document.getElementById(id).classList.remove("open")}
+function outsideClose(event,id){
+  if(event.target.id===id)closeModal(id);
+}
+
+document.getElementById("sellerForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  document.getElementById("sellerMessage").textContent=
+    "Demo application received in this browser. No account has been created or sent to a server.";
+  this.reset();
+});
+
+document.getElementById("productForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  const name=document.getElementById("newProduct").value.trim();
+  const price=Number(document.getElementById("newPrice").value);
+  if(!name || !Number.isFinite(price) || price<=0){
+    document.getElementById("productMessage").textContent="Enter a valid name and price.";
+    return;
+  }
+
+  const category=document.getElementById("newCategory").value;
+  const type=document.getElementById("newType").value;
+  products.unshift({
+    id:Date.now(),name,price,category,type,
+    emoji:type==="Digital"?"📁":type==="Service"?"🛠️":"📦",
+    seller:"Local demo seller",rating:0,
+    description:"A locally added sample listing."
+  });
+
+  document.getElementById("productMessage").textContent=
+    "Sample listing added to this browser session.";
+  this.reset();
+  renderProducts();
+});
+
+function updateCounts(){
+  const cartTotal=cart.reduce((s,x)=>s+x.quantity,0);
+  document.getElementById("cartCount").textContent=cartTotal;
+  document.getElementById("wishCount").textContent=wishlist.length;
+  document.getElementById("statProducts").textContent=products.length;
+  document.getElementById("statCart").textContent=cartTotal;
+  document.getElementById("statWish").textContent=wishlist.length;
+  document.getElementById("statCompare").textContent=comparison.length;
+}
+
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();
+renderComparison();
+saveData();
+</script>
 </body>
 </html>
